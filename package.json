@@ -3,6 +3,10 @@
 	"version": "0.1.0",
 	"homepage": "https://hansf14.github.io/react-practice-crypto-tracker-assignment",
 	"private": true,
+	"packageManager": "yarn@4.5.0",
+	"installConfig": {
+		"hoistingLimits": "workspaces"
+	},
 	"scripts": {
 		"start": "craco --openssl-legacy-provider start",
 		"build": "craco --openssl-legacy-provider build",

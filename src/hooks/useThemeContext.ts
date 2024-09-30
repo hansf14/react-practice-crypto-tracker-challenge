@@ -1,24 +1,19 @@
+import { Singleton } from "@/utils/singleton";
 import React, { useEffect, useState } from "react";
 import { DefaultTheme } from "styled-components";
 
+export type Theme = DefaultTheme | null;
+
 let isInitialized = false;
-let currentTheme: DefaultTheme | undefined = undefined;
+let currentTheme: Theme = null;
 
-class Singleton {
-	private static _instance: Singleton;
-	private constructor() {
-		if (!Singleton._instance) {
-			Singleton._instance = this;
-		}
-
-		return Singleton._instance;
-	}
-	public static get instance() {
-		return this._instance || (this._instance = new this());
+class ThemeContext extends Singleton {
+	protected constructor() {
+		super();
 	}
 
 	private static _staticUseState = (() => {
-		let state: DefaultTheme | undefined = undefined;
+		let state: Theme = null;
 		let setStateCallbacks: React.Dispatch<
 			React.SetStateAction<DefaultTheme>
 		>[] = []; // Array to hold callbacks to update state
@@ -53,19 +48,13 @@ class Singleton {
 		};
 	})();
 
-	public static useThemeContext = (initialTheme?: DefaultTheme) => {
-		if (!isInitialized && initialTheme) {
+	public static useThemeContext = (initialTheme: DefaultTheme) => {
+		if (!isInitialized) {
 			currentTheme = initialTheme;
+			isInitialized = true;
 		}
 
-		if (!currentTheme) {
-			return {
-				theme: null,
-				setTheme: () => {},
-			};
-		}
-
-		const [theme, setTheme] = Singleton._staticUseState(currentTheme);
+		const [theme, setTheme] = ThemeContext._staticUseState(currentTheme!);
 		return {
 			theme,
 			setTheme,
@@ -74,4 +63,4 @@ class Singleton {
 }
 
 // const singleton = Singleton.instance;
-export default Singleton.useThemeContext;
+export default ThemeContext.useThemeContext;
