@@ -64,12 +64,12 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     background-color: ${({ theme }) =>
-			theme.bodyBackgroundColor ? theme.bodyBackgroundColor : "#fff"};
+      theme.bodyBackgroundColor ? theme.bodyBackgroundColor : "#fff"};
 
     color: ${({ theme }) =>
-			theme.bodyTextColor ? theme.bodyTextColor : "#000"};
+      theme.bodyTextColor ? theme.bodyTextColor : "#000"};
     font-family: ${({ theme }) =>
-			theme.bodyFontFamily ? theme.bodyFontFamily : `sans-serif`};
+      theme.bodyFontFamily ? theme.bodyFontFamily : `sans-serif`};
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
@@ -83,38 +83,38 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-	const { theme } = useThemeContext(lightTheme);
-	// console.log(theme);
+  const { theme } = useThemeContext(lightTheme);
+  // console.log(theme);
 
-	return (
-		<>
-			{theme ? (
-				<ThemeProvider theme={theme!}>
-					<Helmet>
-						<link
-							href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
-							rel="stylesheet"
-						/>
-					</Helmet>
-					<GlobalStyle />
-					<Router />
-					<ReactQueryDevtools initialIsOpen={true} />
-				</ThemeProvider>
-			) : (
-				<>
-					<Helmet>
-						<link
-							href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
-							rel="stylesheet"
-						/>
-					</Helmet>
-					<GlobalStyle />
-					<Router />
-					<ReactQueryDevtools initialIsOpen={true} />
-				</>
-			)}
-		</>
-	);
+  return (
+    <>
+      {theme ? (
+        <ThemeProvider theme={theme!}>
+          <Helmet>
+            <link
+              href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+              rel="stylesheet"
+            />
+          </Helmet>
+          <GlobalStyle theme={theme} />
+          <Router />
+          <ReactQueryDevtools initialIsOpen={true} />
+        </ThemeProvider>
+      ) : (
+        <>
+          <Helmet>
+            <link
+              href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+              rel="stylesheet"
+            />
+          </Helmet>
+          <GlobalStyle theme={theme} />
+          <Router />
+          <ReactQueryDevtools initialIsOpen={true} />
+        </>
+      )}
+    </>
+  );
 }
 
 export default App;
