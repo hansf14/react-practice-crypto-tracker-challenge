@@ -1,7 +1,7 @@
 {
-  "name": "react-practice-crypto-tracker-assignment",
-  "version": "0.1.0",
-  "homepage": "https://hansf14.github.io/react-practice-crypto-tracker-assignment",
+  "name": "react-practice-crypto-tracker-challenge",
+  "version": "1.0.0",
+  "homepage": "https://hansf14.github.io/react-practice-crypto-tracker-challenge",
   "private": true,
   "packageManager": "yarn@4.5.0",
   "installConfig": {

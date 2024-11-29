@@ -1,4 +1,4 @@
-# React Practice Crypto Tracker Assignment
+# React Practice Crypto Tracker Challenge
 
 - **One of my personal digital nomad life projects (for practice).**
 - **Project current status: [complete]**:ballot_box_with_check:
@@ -21,7 +21,7 @@
   </div>
 </p>
 
-- **Demo: [React Practice Crypto Tracker Assignment](https://hansf14.github.io/react-practice-crypto-tracker-assignment)**
+- **Demo: [React Practice Crypto Tracker Challenge](https://hansf14.github.io/react-practice-crypto-tracker-challenge)**
 - **Preview Screenshots**
 <p>
   <div>
